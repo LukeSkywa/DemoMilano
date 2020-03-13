@@ -9,6 +9,7 @@ export class SecondoComponent implements OnInit {
   @Output()
   clickEvent: EventEmitter<string> = new EventEmitter();
 
+  mostraRosso: boolean = false;
 
   titolo = 'iniziale';
 
@@ -25,7 +26,7 @@ export class SecondoComponent implements OnInit {
     console.log('ciao');
     this.clickEvent.emit(this.titolo);
     this.titolo = 'dopo click';
-
+    this.mostraRosso = !this.mostraRosso;
   }
 
 }

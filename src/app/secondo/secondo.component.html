@@ -6,4 +6,6 @@
 (input)="inputEvent(inputProva)" 
 [value]="titolo">
 
-<span>{{inputProva.value}}</span>
+<span [class.prova]="mostraRosso"
+    [class.altro]="!mostraRosso"
+>{{inputProva.value}}</span>
