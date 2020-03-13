@@ -1,5 +1,8 @@
-<button (click)="gestioneClick($event)">CLiccami</button>
-<p>{{titolo}}</p>
+<div>
+
+    <button (click)="gestioneClick($event)">CLiccami</button>
+</div>
+<p *ngIf="mostraRosso">{{titolo}}</p>
 
 <!-- nell'esempio sotto $event.target === inputProva -->
 <input #inputProva
