@@ -1,2 +1,5 @@
-<button (click)="gestioneClick()">CLiccami</button>
+<button (click)="gestioneClick($event)">CLiccami</button>
 <p>{{titolo}}</p>
+<input 
+(input)="inputEvent($event)" 
+[value]="titolo">
