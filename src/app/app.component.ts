@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'DemoMilano';
+
+  html= '<div>Ciao</div>';
+  
+  link = 'https://google.it';
+
+  constructor(){
+    
+  }
 }
