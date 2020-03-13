@@ -1,8 +1,14 @@
+<!-- qui preferisco interpolazione -->
 <span>{{title}}</span>
+<span [innerHtml]="title"></span>
+
+<!-- in questo caso non posso usare l'interpolazione -->
+<div>{{html}}</div>
 <div [innerHtml]="html"></div>
 
+<!-- in questi casi meglio la property binding -->
 <app-primo [parin]="title"></app-primo>
-
+<app-primo parin="{{title}}"></app-primo>
 <a [href]="link">Link</a>
 
 
