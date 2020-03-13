@@ -13,6 +13,13 @@ export class SecondoComponent implements OnInit {
 
   titolo = 'iniziale';
 
+  get oggettoClassi() {
+    return {
+      prova: this.mostraRosso,
+      altro: !this.mostraRosso
+    }
+  }
+
   constructor() { }
 
   ngOnInit(): void {
