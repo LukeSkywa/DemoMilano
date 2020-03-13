@@ -12,6 +12,7 @@ export class AppComponent {
   
   link = 'https://google.it';
 
+
   constructor(){
     
   }

@@ -9,6 +9,12 @@ export class PrimoComponent implements OnInit {
   @Input()
   parin: string;
 
+  items = [1,2];
+
+  variabile = 'valore';
+
+  myDate: Date = new Date();
+
   constructor() { }
 
   ngOnInit(): void {
