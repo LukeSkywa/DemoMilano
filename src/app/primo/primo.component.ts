@@ -15,7 +15,14 @@ export class PrimoComponent implements OnInit {
 
   myDate: Date = new Date();
 
-  constructor() { }
+oggetto = {
+  chiave: 'valoreoggetto'
+}
+
+oggettoNull = null;
+
+  constructor() {
+   }
 
   ngOnInit(): void {
   }
