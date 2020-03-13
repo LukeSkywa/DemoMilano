@@ -1,5 +1,9 @@
 <button (click)="gestioneClick($event)">CLiccami</button>
 <p>{{titolo}}</p>
-<input 
-(input)="inputEvent($event)" 
+
+<!-- nell'esempio sotto $event.target === inputProva -->
+<input #inputProva
+(input)="inputEvent(inputProva)" 
 [value]="titolo">
+
+<span>{{inputProva.value}}</span>

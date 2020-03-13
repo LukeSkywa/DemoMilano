@@ -17,8 +17,8 @@ export class SecondoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  inputEvent(event) {
-    this.titolo = event.target.value;
+  inputEvent(target) {
+    this.titolo = target.value;
   }
 
   gestioneClick(event) {
