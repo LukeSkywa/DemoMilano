@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-secondo',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./secondo.component.scss']
 })
 export class SecondoComponent implements OnInit {
+  @Output()
+  clickEvent: EventEmitter<string> = new EventEmitter();
+
 
   titolo = 'iniziale';
 
@@ -20,7 +23,9 @@ export class SecondoComponent implements OnInit {
 
   gestioneClick(event) {
     console.log('ciao');
+    this.clickEvent.emit(this.titolo);
     this.titolo = 'dopo click';
+
   }
 
 }
