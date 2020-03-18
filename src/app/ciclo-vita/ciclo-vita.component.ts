@@ -1,12 +1,13 @@
-import { Component, OnInit, SimpleChanges, OnDestroy, OnChanges, Input, DoCheck } from '@angular/core';
+import { Component, OnInit, SimpleChanges, OnDestroy, OnChanges, Input, DoCheck, AfterViewInit, AfterViewChecked, ViewChild } from '@angular/core';
 import { Persona } from '../model/persona.interface';
+import { SecondoComponent } from '../secondo/secondo.component';
 
 @Component({
   selector: 'app-ciclo-vita',
   templateUrl: './ciclo-vita.component.html',
   styleUrls: ['./ciclo-vita.component.scss']
 })
-export class CicloVitaComponent implements OnInit, OnDestroy, OnChanges, DoCheck {
+export class CicloVitaComponent implements OnChanges, OnInit, DoCheck, AfterViewInit, AfterViewChecked, OnDestroy {
   @Input()
   primitiva: string;
   @Input()
@@ -16,9 +17,12 @@ export class CicloVitaComponent implements OnInit, OnDestroy, OnChanges, DoCheck
 
   inputVar: string;
 
+  @ViewChild(SecondoComponent)
+  private secondoComponentRef: SecondoComponent;
+
   private nomeProfiloPrecedente: string;
-  
-  constructor() { 
+
+  constructor() {
     console.log('constructor: ' + this.primitiva);
   }
 
@@ -43,14 +47,28 @@ export class CicloVitaComponent implements OnInit, OnDestroy, OnChanges, DoCheck
 
   ngOnInit(): void {
     console.log('oninit: ' + this.primitiva);
+    if (this.secondoComponentRef != null) {
+      console.log('oninit - secondoComponentRef esiste già');
+    }
   }
-  
+
   ngDoCheck(): void {
     console.log('ngDoCheck');
-    if(this.nomeProfiloPrecedente !== this.profilo.nome){
+    if (this.nomeProfiloPrecedente !== this.profilo.nome) {
       console.log('è stata modifica la proprietà nome di profilo');
       this.nomeProfiloPrecedente = this.profilo.nome;
     }
+  }
+
+  ngAfterViewInit(): void {
+    console.log('ngAfterViewInit');
+    if (this.secondoComponentRef != null) {
+      console.log('ngAfterViewInit - secondoComponentRef esiste già');
+    }
+  }
+
+  ngAfterViewChecked(): void {
+    console.log('ngAfterViewChecked');
   }
 
   ngOnDestroy(): void {
