@@ -6,7 +6,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./secondo.component.scss']
 })
 export class SecondoComponent implements OnInit {
-  @Output()
+  @Output('eventoClick')
   clickEvent: EventEmitter<string> = new EventEmitter();
 
   mostraRosso: boolean = false;
