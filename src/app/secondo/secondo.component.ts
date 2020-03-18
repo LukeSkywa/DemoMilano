@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { ComunicazioneService } from '../comunicazione.service';
 
 @Component({
   selector: 'app-secondo',
@@ -24,8 +25,10 @@ export class SecondoComponent implements OnInit {
       altro: !this.mostraRosso
     }
   }
+  
 
-  constructor() { }
+  constructor(private comunicazioneService: ComunicazioneService) { 
+  }
 
   ngOnInit(): void {
   }
@@ -35,6 +38,7 @@ export class SecondoComponent implements OnInit {
   }
 
   gestioneClick(event) {
+    this.comunicazioneService.setNuovoValoreSubject(this.titolo);
     console.log('valore viewchild: '+this.inputRef.nativeElement.value);
     this.clickEvent.emit(this.titolo);
     this.titolo = 'dopo click';

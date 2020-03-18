@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Persona } from '../model/persona.interface';
+import { ComunicazioneService } from '../comunicazione.service';
 
 @Component({
   selector: 'app-primo',
@@ -35,7 +36,12 @@ export class PrimoComponent implements OnInit {
 
   varSwitch = 1;
 
-  constructor() {
+  constructor(private comunicazioneService: ComunicazioneService) {
+  
+    this.comunicazioneService.mySubject$.subscribe(value => {
+      console.log('check valore comunicazione service: '+value);
+    });
+
     switch (this.varSwitch) {
       case 1: {
         console.log('primo valore');
@@ -53,6 +59,8 @@ export class PrimoComponent implements OnInit {
         console.log('quarto valore');
         break;
       }
+      default:
+        console.log('entro qua dentro quando nessun case è soddisfatto');
     }
     if (this.varSwitch === 1) {
       console.log('primo valore');

@@ -16,7 +16,7 @@ export class AppComponent {
   @ViewChild(PrimoComponent)
   private primoComponentRef: PrimoComponent;
 
-  componentToShow = 2;
+  componentToShow = 9;
 
 
   constructor(){

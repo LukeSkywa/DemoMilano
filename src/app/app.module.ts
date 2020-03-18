@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { PrimoComponent } from './primo/primo.component';
 import { SecondoComponent } from './secondo/secondo.component';
+import { ComunicazioneService } from './comunicazione.service';
 
 @NgModule({
   declarations: [
