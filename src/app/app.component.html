@@ -9,7 +9,18 @@
     <!-- in questi casi meglio la property binding -->
     <app-primo [inputIngresso]="title" [name]="'Luca'" *ngSwitchCase="1"></app-primo>
     <app-secondo (eventoClick)="title=$event" *ngSwitchCase="2"></app-secondo>
-    <app-ciclo-vita [primitiva]="primitivaInput" [profilo]="profiloInput" [profilo1]="profilo1Input" *ngSwitchCase="3"></app-ciclo-vita>
+
+
+
+    <app-ciclo-vita [primitiva]="primitivaInput" [profilo]="profiloInput" [profilo1]="profilo1Input" *ngSwitchCase="3">
+        <div>
+            <p>Prova</p>
+        </div>
+    </app-ciclo-vita>
+
+
+
+
     <div *ngSwitchDefault>
         <app-primo [inputIngresso]="title" [name]="'Mario'"></app-primo>
         <app-secondo (eventoClick)="title=$event"></app-secondo>

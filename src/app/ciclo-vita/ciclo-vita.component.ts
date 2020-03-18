@@ -1,4 +1,4 @@
-import { Component, OnInit, SimpleChanges, OnDestroy, OnChanges, Input, DoCheck, AfterViewInit, AfterViewChecked, ViewChild } from '@angular/core';
+import { Component, OnInit, SimpleChanges, OnDestroy, OnChanges, Input, DoCheck, AfterViewInit, AfterViewChecked, ViewChild, AfterContentInit, AfterContentChecked } from '@angular/core';
 import { Persona } from '../model/persona.interface';
 import { SecondoComponent } from '../secondo/secondo.component';
 
@@ -7,7 +7,7 @@ import { SecondoComponent } from '../secondo/secondo.component';
   templateUrl: './ciclo-vita.component.html',
   styleUrls: ['./ciclo-vita.component.scss']
 })
-export class CicloVitaComponent implements OnChanges, OnInit, DoCheck, AfterViewInit, AfterViewChecked, OnDestroy {
+export class CicloVitaComponent implements OnChanges, OnInit, DoCheck, AfterViewInit, AfterViewChecked, AfterContentInit, AfterContentChecked, OnDestroy {
   @Input()
   primitiva: string;
   @Input()
@@ -53,7 +53,7 @@ export class CicloVitaComponent implements OnChanges, OnInit, DoCheck, AfterView
   }
 
   ngDoCheck(): void {
-    console.log('ngDoCheck');
+    // console.log('ngDoCheck');
     if (this.nomeProfiloPrecedente !== this.profilo.nome) {
       console.log('è stata modifica la proprietà nome di profilo');
       this.nomeProfiloPrecedente = this.profilo.nome;
@@ -68,7 +68,14 @@ export class CicloVitaComponent implements OnChanges, OnInit, DoCheck, AfterView
   }
 
   ngAfterViewChecked(): void {
-    console.log('ngAfterViewChecked');
+    // console.log('ngAfterViewChecked');
+  }
+
+  ngAfterContentInit(): void {
+    console.log('ngAfterContentInit');
+  }
+  ngAfterContentChecked(): void {
+    // console.log('ngAfterContentChecked');
   }
 
   ngOnDestroy(): void {
