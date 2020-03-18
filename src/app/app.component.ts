@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { PrimoComponent } from './primo/primo.component';
+import { Persona } from './model/persona.interface';
 
 @Component({
   selector: 'app-root',
@@ -9,24 +10,30 @@ import { PrimoComponent } from './primo/primo.component';
 export class AppComponent {
   title = 'DemoMilano';
 
-  html= '<div>Ciao</div>';
-  
+  html = '<div>Ciao</div>';
+
   link = 'https://google.it';
+
+  primitivaInput: string = '';
+  profiloInput: Persona = {
+    nome: 'Luca', cognome: 'Alicata'
+  }
+
 
   @ViewChild(PrimoComponent)
   private primoComponentRef: PrimoComponent;
 
-  componentToShow = 1;
+  componentToShow = 3;
 
 
-  constructor(){
+  constructor() {
   }
 
-  checkViewChild(){
-    if(this.primoComponentRef){
+  checkViewChild() {
+    if (this.primoComponentRef) {
       this.primoComponentRef.incrementaSwitch();
     }
-    if (this.componentToShow === 3) {
+    if (this.componentToShow === 4) {
       this.componentToShow = 1;
     } else {
       this.componentToShow++;

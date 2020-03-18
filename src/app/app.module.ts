@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { PrimoComponent } from './primo/primo.component';
 import { SecondoComponent } from './secondo/secondo.component';
 import { ComunicazioneService } from './comunicazione.service';
+import { CicloVitaComponent } from './ciclo-vita/ciclo-vita.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PrimoComponent,
-    SecondoComponent
+    SecondoComponent,
+    CicloVitaComponent
   ],
   imports: [
     BrowserModule,
