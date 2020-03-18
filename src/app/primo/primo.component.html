@@ -1,10 +1,17 @@
 <p>{{oggetto?.chiave}}</p>
 <p>{{oggettoNull?.chiave}}</p>
 <p>{{parin}} works!</p>
-<p>{{variabile | uppercase}}</p>
 <p>{{myDate | date:'longDate' | uppercase}}</p>
 
+<p *ngIf="varBool != null">{{varBool}}</p>
+<p *ngIf="varString != null">{{varString}}</p>
+<p *ngIf="varNum != null">{{varNum}}</p>
+
+<p *ngIf="varBool">{{varBool}}</p>
+<p *ngIf="varString">{{varString}}</p>
+<p *ngIf="varNum">{{varNum}}</p>
+
 <div *ngFor="let profilo of profili; let i = index;">
-    <span [ngClass]="{prova: i%2===0}">{{profilo.nome}}</span>
+    <span [ngClass]="{prova: i%2===0}">{{profilo?.nome}}</span>
 </div>
 

@@ -11,26 +11,29 @@ export class PrimoComponent implements OnInit {
   parin: string;
 
   profili: Persona[] = [
-    {nome: 'Luca', cognome: 'Alicata'},
-    {nome: 'Mario', cognome: 'Bianchi'},
-    {nome: 'Paolo', cognome: 'Rossi'},
-    {nome: 'Marco', cognome: 'Rossi'},
-    {nome: 'Diego', cognome: 'Rossi'},
-    {nome: 'Domenica', cognome: 'Rossi'}
+    { nome: 'Luca', cognome: 'Alicata' },
+    { nome: 'Mario', cognome: 'Bianchi' },
+    null,
+    { nome: 'Marco', cognome: 'Rossi' },
+    { nome: 'Diego', cognome: 'Rossi' },
+    { nome: 'Domenica', cognome: 'Rossi' }
   ];
 
-  variabile = 'valore';
+  varBool = false;
+  varString = '';
+  varNum = 0;
+
 
   myDate: Date = new Date();
 
-oggetto = {
-  chiave: 'valoreoggetto'
-}
+  oggetto = {
+    chiave: 'valoreoggetto'
+  }
 
-oggettoNull = null;
+  oggettoNull = null;
 
   constructor() {
-   }
+  }
 
   ngOnInit(): void {
   }
