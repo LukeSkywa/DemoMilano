@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Persona } from '../model/persona.interface';
 
 @Component({
   selector: 'app-primo',
@@ -9,7 +10,14 @@ export class PrimoComponent implements OnInit {
   @Input()
   parin: string;
 
-  items = [1,2];
+  profili: Persona[] = [
+    {nome: 'Luca', cognome: 'Alicata'},
+    {nome: 'Mario', cognome: 'Bianchi'},
+    {nome: 'Paolo', cognome: 'Rossi'},
+    {nome: 'Marco', cognome: 'Rossi'},
+    {nome: 'Diego', cognome: 'Rossi'},
+    {nome: 'Domenica', cognome: 'Rossi'}
+  ];
 
   variabile = 'valore';
 

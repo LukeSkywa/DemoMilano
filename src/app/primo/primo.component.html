@@ -3,7 +3,8 @@
 <p>{{parin}} works!</p>
 <p>{{variabile | uppercase}}</p>
 <p>{{myDate | date:'longDate' | uppercase}}</p>
-<div *ngFor="let item of items">
-    <span class="prova">{{item}}</span>
+
+<div *ngFor="let profilo of profili; let i = index;">
+    <span [ngClass]="{prova: i%2===0}">{{profilo.nome}}</span>
 </div>
 
