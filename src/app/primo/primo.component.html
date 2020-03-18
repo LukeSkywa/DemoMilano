@@ -1,5 +1,3 @@
-<p>{{oggetto?.chiave}}</p>
-<p>{{oggettoNull?.chiave}}</p>
 <p>{{parin}} works!</p>
 <p>{{myDate | date:'longDate' | uppercase}}</p>
 
@@ -15,3 +13,16 @@
     <span [ngClass]="{prova: i%2===0}">{{profilo?.nome}}</span>
 </div>
 
+<p *ngIf="varSwitch === 1">primo valore</p>
+<p *ngIf="varSwitch === 2">secondo valore</p>
+<p *ngIf="varSwitch === 3">terzo valore</p>
+<p *ngIf="varSwitch === 4">quarto valore</p>
+
+<div [ngSwitch]='varSwitch'>
+    <p *ngSwitchCase="1">primo valore</p>
+    <p *ngSwitchCase="2">secondo valore</p>
+    <p *ngSwitchCase="3">terzo valore</p>
+    <p *ngSwitchCase="4">quarto valore</p>
+</div>
+
+<button (click)="incrementaSwitch()">Incrementa</button>
