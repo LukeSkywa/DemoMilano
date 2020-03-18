@@ -5,9 +5,10 @@
 <!-- in questo caso non posso usare l'interpolazione -->
 <div>{{html}}</div>
 <div [innerHtml]="html"></div>
-
-<!-- in questi casi meglio la property binding -->
-<app-primo [inputIngresso]="title" [name]="'Luca'"></app-primo>
-<!-- <app-secondo (eventoClick)="title=$event"></app-secondo> -->
+<div [ngSwitch]='componentToShow'>
+    <!-- in questi casi meglio la property binding -->
+    <app-primo [inputIngresso]="title" [name]="'Luca'" *ngSwitchCase="1"></app-primo>
+    <app-secondo (eventoClick)="title=$event" *ngSwitchCase="2"></app-secondo>
+</div>
 
 <button (click)="checkViewChild()">Prova View child</button>
