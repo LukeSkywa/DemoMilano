@@ -16,7 +16,7 @@ export class AppComponent {
   @ViewChild(PrimoComponent)
   private primoComponentRef: PrimoComponent;
 
-  componentToShow = 9;
+  componentToShow = 1;
 
 
   constructor(){
@@ -25,6 +25,11 @@ export class AppComponent {
   checkViewChild(){
     if(this.primoComponentRef){
       this.primoComponentRef.incrementaSwitch();
+    }
+    if (this.componentToShow === 3) {
+      this.componentToShow = 1;
+    } else {
+      this.componentToShow++;
     }
   }
 

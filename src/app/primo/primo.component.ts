@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, OnDestroy } from '@angular/core';
 import { Persona } from '../model/persona.interface';
 import { ComunicazioneService } from '../comunicazione.service';
 
@@ -7,7 +7,16 @@ import { ComunicazioneService } from '../comunicazione.service';
   templateUrl: './primo.component.html',
   styleUrls: ['./primo.component.scss']
 })
-export class PrimoComponent implements OnInit {
+export class PrimoComponent implements OnInit, OnDestroy {
+
+  ngOnInit(): void {
+    console.log('oninit: '+this.nameToDisplay);
+  }
+  
+  ngOnDestroy(): void {
+    console.log('onDestroy: '+this.nameToDisplay);
+  }
+
   @Input('inputIngresso')
   parin: string;
 
@@ -37,43 +46,11 @@ export class PrimoComponent implements OnInit {
   varSwitch = 1;
 
   constructor(private comunicazioneService: ComunicazioneService) {
+    console.log('constructor: '+this.nameToDisplay);
   
     this.comunicazioneService.mySubject$.subscribe(value => {
       console.log('check valore comunicazione service: '+value);
     });
-
-    switch (this.varSwitch) {
-      case 1: {
-        console.log('primo valore');
-        break;
-      }
-      case 2: {
-        console.log('secondo valore');
-        break;
-      }
-      case 3: {
-        console.log('terzo valore');
-        break;
-      }
-      case 4: {
-        console.log('quarto valore');
-        break;
-      }
-      default:
-        console.log('entro qua dentro quando nessun case è soddisfatto');
-    }
-    if (this.varSwitch === 1) {
-      console.log('primo valore');
-    }
-    if (this.varSwitch === 2) {
-      console.log('secondo valore');
-    }
-    if (this.varSwitch === 3) {
-      console.log('terzo valore');
-    }
-    if (this.varSwitch === 4) {
-      console.log('quarto valore');
-    }
 
   }
 
@@ -83,9 +60,6 @@ export class PrimoComponent implements OnInit {
     } else {
       this.varSwitch++;
     }
-  }
-
-  ngOnInit(): void {
   }
 
 }
