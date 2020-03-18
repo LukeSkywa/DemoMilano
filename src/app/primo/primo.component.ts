@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
 import { Persona } from '../model/persona.interface';
 import { ComunicazioneService } from '../comunicazione.service';
 
@@ -7,7 +7,22 @@ import { ComunicazioneService } from '../comunicazione.service';
   templateUrl: './primo.component.html',
   styleUrls: ['./primo.component.scss']
 })
-export class PrimoComponent implements OnInit, OnDestroy {
+export class PrimoComponent implements OnInit, OnDestroy, OnChanges {
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes) {
+      console.log('changes: ' + JSON.stringify(changes));
+    
+      if (changes['parin'] != null && changes['parin'].previousValue !== changes['parin'].currentValue
+        && !changes['parin'].firstChange) {
+        console.log('è stato modificato parin');
+      }
+      if (changes['name'] != null && changes['name'].previousValue !== changes['name'].currentValue
+        && !changes['name'].firstChange) {
+        console.log('è stato modificato name');
+      }
+    }
+  }
 
   ngOnInit(): void {
     console.log('oninit: '+this.nameToDisplay);
