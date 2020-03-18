@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { PrimoComponent } from './primo/primo.component';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +13,18 @@ export class AppComponent {
   
   link = 'https://google.it';
 
+  @ViewChild(PrimoComponent)
+  private primoComponentRef: PrimoComponent;
+
 
   constructor(){
-    
   }
+
+  checkViewChild(){
+    if(this.primoComponentRef){
+      this.primoComponentRef.incrementaSwitch();
+    }
+  }
+
+
 }
