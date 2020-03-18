@@ -7,8 +7,15 @@ import { Persona } from '../model/persona.interface';
   styleUrls: ['./primo.component.scss']
 })
 export class PrimoComponent implements OnInit {
-  @Input()
+  @Input('inputIngresso')
   parin: string;
+
+  nameToDisplay: string;
+
+  @Input()
+  set name(valueInput: string) {
+    this.nameToDisplay = valueInput + 'suffisso';
+  }
 
   profili: Persona[] = [
     { nome: 'Luca', cognome: 'Alicata' },
