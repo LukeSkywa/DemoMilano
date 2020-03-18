@@ -14,9 +14,12 @@ export class AppComponent {
 
   link = 'https://google.it';
 
-  primitivaInput: string = '';
+  primitivaInput: string = 'q';
   profiloInput: Persona = {
     nome: 'Luca', cognome: 'Alicata'
+  }
+  profilo1Input: Persona = {
+    nome: 'Guglielmo', cognome: 'Alicata'
   }
 
 
@@ -27,6 +30,14 @@ export class AppComponent {
 
 
   constructor() {
+  }
+
+  modificaValori(){
+    this.primitivaInput += 'asd';
+    this.profiloInput.nome += 'asd';
+    this.profilo1Input = {
+      nome: 'Mario', cognome: 'Bianchi'
+    }
   }
 
   checkViewChild() {
