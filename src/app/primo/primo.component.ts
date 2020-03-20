@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
 import { Persona } from '../model/persona.interface';
 import { ComunicazioneService } from '../comunicazione.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-primo',
@@ -13,7 +13,7 @@ export class PrimoComponent implements OnInit, OnDestroy, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes) {
       console.log('changes: ' + JSON.stringify(changes));
-    
+
       if (changes['parin'] != null && changes['parin'].previousValue !== changes['parin'].currentValue
         && !changes['parin'].firstChange) {
         console.log('è stato modificato parin');
@@ -26,14 +26,12 @@ export class PrimoComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   ngOnInit(): void {
-    console.log('oninit: '+this.nameToDisplay);
-  }
-  
-  ngOnDestroy(): void {
-    console.log('onDestroy: '+this.nameToDisplay);
+    console.log('oninit: ' + this.nameToDisplay);
   }
 
-  @Input('inputIngresso')
+  ngOnDestroy(): void {
+    console.log('onDestroy: ' + this.nameToDisplay);
+  }
   parin: string;
 
   nameToDisplay: string;
@@ -62,12 +60,18 @@ export class PrimoComponent implements OnInit, OnDestroy, OnChanges {
   varSwitch = 1;
 
   constructor(private comunicazioneService: ComunicazioneService,
-    private router: Router) {
-    console.log('constructor: '+this.nameToDisplay);
-  
+    private router: Router, private route: ActivatedRoute) {
+    console.log('constructor: ' + this.nameToDisplay);
+
     this.comunicazioneService.mySubject$.subscribe(value => {
-      console.log('check valore comunicazione service: '+value);
+      console.log('check valore comunicazione service: ' + value);
     });
+
+    console.log(JSON.stringify(this.route.snapshot.data));
+    if (this.route.snapshot.data['title'] != null) {
+      this.parin = this.route.snapshot.data['title'];
+    }
+
 
   }
 
@@ -78,9 +82,9 @@ export class PrimoComponent implements OnInit, OnDestroy, OnChanges {
       this.varSwitch++;
     }
   }
-  
-  navigate(){
-    if(this.varSwitch == 1) {
+
+  navigate() {
+    if (this.varSwitch == 1) {
       this.router.navigateByUrl('/secondo');
     } else {
       this.router.navigateByUrl('/ciclo-vita');
