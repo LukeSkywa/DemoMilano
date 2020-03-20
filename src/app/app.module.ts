@@ -6,13 +6,15 @@ import { PrimoComponent } from './primo/primo.component';
 import { SecondoComponent } from './secondo/secondo.component';
 import { CicloVitaComponent } from './ciclo-vita/ciclo-vita.component';
 import { DemoRoutingModule } from './app-routing.module';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PrimoComponent,
     SecondoComponent,
-    CicloVitaComponent
+    CicloVitaComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
