@@ -1,6 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { PrimoComponent } from './primo/primo.component';
-import { Persona } from './model/persona.interface';
+import { Router, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +8,24 @@ import { Persona } from './model/persona.interface';
 })
 export class AppComponent {
 
-  constructor() {
+
+
+  constructor(router: Router) {
+    router.events.subscribe(event => {
+      if(event instanceof NavigationStart) {
+        console.log('NavigationStart');
+      }
+      if(event instanceof NavigationEnd) {
+        console.log('NavigationEnd');
+      }
+      if(event instanceof NavigationCancel) {
+        console.log('NavigationCancel');
+      }
+      if(event instanceof NavigationError) {
+        console.log('NavigationError');
+      }
+    });
+  
   }
 
 }

@@ -54,10 +54,10 @@ export class CicloVitaComponent implements OnChanges, OnInit, DoCheck, AfterView
 
   ngDoCheck(): void {
     // console.log('ngDoCheck');
-    if (this.nomeProfiloPrecedente !== this.profilo.nome) {
-      console.log('è stata modifica la proprietà nome di profilo');
-      this.nomeProfiloPrecedente = this.profilo.nome;
-    }
+    // if (this.nomeProfiloPrecedente !== this.profilo.nome) {
+    //   console.log('è stata modifica la proprietà nome di profilo');
+    //   this.nomeProfiloPrecedente = this.profilo.nome;
+    // }
   }
 
   ngAfterViewInit(): void {
