@@ -5,6 +5,8 @@ import { Subject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ComunicazioneService {
+
+  canActivateOnSecondoPath: boolean = false;
   
   private mySubject: Subject<string> = new Subject<string>();
   mySubject$: Observable<string> = this.mySubject.asObservable();

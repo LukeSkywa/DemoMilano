@@ -85,6 +85,7 @@ export class PrimoComponent implements OnInit, OnDestroy, OnChanges {
 
   navigate() {
     if (this.varSwitch == 1) {
+      this.comunicazioneService.canActivateOnSecondoPath = true;
       this.router.navigateByUrl('/secondo');
     } else {
       this.router.navigateByUrl('/ciclo-vita');
