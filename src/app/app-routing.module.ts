@@ -9,6 +9,7 @@ const appRoutes: Routes = [
     { path: 'primo-diverso', component: PrimoComponent, data: { title: 'Diverso' } },
     { path: 'secondo', component: SecondoComponent },
     { path: 'ciclo-vita', component: CicloVitaComponent },
+    { path: '**', component: CicloVitaComponent },
     { path: '', redirectTo: '/primo', pathMatch: 'full' },
 ];
 
