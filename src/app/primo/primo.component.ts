@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChild, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
 import { Persona } from '../model/persona.interface';
 import { ComunicazioneService } from '../comunicazione.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-primo',
@@ -60,7 +61,8 @@ export class PrimoComponent implements OnInit, OnDestroy, OnChanges {
 
   varSwitch = 1;
 
-  constructor(private comunicazioneService: ComunicazioneService) {
+  constructor(private comunicazioneService: ComunicazioneService,
+    private router: Router) {
     console.log('constructor: '+this.nameToDisplay);
   
     this.comunicazioneService.mySubject$.subscribe(value => {
@@ -76,5 +78,12 @@ export class PrimoComponent implements OnInit, OnDestroy, OnChanges {
       this.varSwitch++;
     }
   }
-
+  
+  navigate(){
+    if(this.varSwitch == 1) {
+      this.router.navigateByUrl('/secondo');
+    } else {
+      this.router.navigateByUrl('/ciclo-vita');
+    }
+  }
 }
