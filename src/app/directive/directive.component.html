@@ -10,6 +10,10 @@
     </ng-container>
 </p>
 
+<p *ngFor="let oggetto of listaDiOggetti; trackBy: trackByNominativo" [appHighlight]="color">
+        {{oggetto.nome}}
+</p>
+
 <p>{{(4-2) | exponentialStrength}}</p>
 <p>{{(4-2) | exponentialStrength:'3'}}</p>
 
