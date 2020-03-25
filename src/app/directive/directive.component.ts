@@ -7,11 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DirectiveComponent implements OnInit {
 
+  color: string = null;
   listaSemplice: string[] = ['Pippo', 'Pluto', 'Paperino'];
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggleColorVar() {
+    if (this.color != null && this.color !== '') {
+      this.color = null;
+    } else {
+      this.color = 'blue';
+    }
   }
 
 }

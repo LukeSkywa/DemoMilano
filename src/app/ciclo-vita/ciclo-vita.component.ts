@@ -9,8 +9,6 @@ import { SecondoComponent } from '../secondo/secondo.component';
 })
 export class CicloVitaComponent implements OnChanges, OnInit, DoCheck, AfterViewInit, AfterViewChecked, AfterContentInit, AfterContentChecked, OnDestroy {
 
-color: string = 'yellow';
-
   primitiva: string = 'valore default';
 
   profilo: Persona;

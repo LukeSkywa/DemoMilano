@@ -1,7 +1,23 @@
-<p appHighlight="yellow">{{primitiva}}</p>
+<p appHighlight="yellow">attributo html semplice</p>
 <p appHighlight>con valore di default</p>
-<p appHighlight="{{color}}">Prova Prova</p>
+<p appHighlight="{{color}}">attributo con interpolazione</p>
 <!-- si preferisce la sintassi sotto con le [] -->
-<p [appHighlight]="color">Prova 2</p>
+<p [appHighlight]="color">Property binding</p>
 
-<p *ngFor="let item of listaSemplice">{{item}}</p>
+<p *ngFor="let item of listaSemplice" [appHighlight]="color">
+    <ng-container *ngIf="item !== 'Pluto'">
+        {{item}}
+    </ng-container>
+</p>
+
+<span>
+    Il mio colore preferito
+    <ng-container *ngIf="color != null && color !== ''; else templateElse">
+        è il {{color}}
+    </ng-container>
+    <ng-template #templateElse>
+        è il green
+    </ng-template>
+</span>
+
+<button (click)="toggleColorVar()">toggle variabile colore</button>
