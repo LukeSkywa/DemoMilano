@@ -1,4 +1,9 @@
-<p>{{primitiva}}</p>
+<p appHighlight highlightColor="yellow">{{primitiva}}</p>
+<p appHighlight highlightColor="{{color}}">Prova Prova</p>
+<!-- si preferisce la sintassi sotto con le [] -->
+<p appHighlight [highlightColor]="color">Prova 2</p>
+
+
 <p>{{profilo | json}}</p>
 <ng-content></ng-content>
 <input [(ngModel)]="inputVar">
