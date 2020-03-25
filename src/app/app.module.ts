@@ -9,6 +9,7 @@ import { DemoRoutingModule } from './app-routing.module';
 import { MenuComponent } from './menu/menu.component';
 import { HighlightDirective } from './highlight.directive';
 import { DirectiveComponent } from './directive/directive.component';
+import { UnlessDirective } from './unless.directive';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DirectiveComponent } from './directive/directive.component';
     CicloVitaComponent,
     MenuComponent,
     HighlightDirective,
-    DirectiveComponent
+    DirectiveComponent,
+    UnlessDirective
   ],
   imports: [
     BrowserModule,

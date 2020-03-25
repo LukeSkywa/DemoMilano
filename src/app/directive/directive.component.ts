@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DirectiveComponent implements OnInit {
 
+  condition: boolean = true;
   color: string = null;
   listaSemplice: string[] = ['Pippo', 'Pluto', 'Paperino'];
 

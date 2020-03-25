@@ -10,6 +10,9 @@
     </ng-container>
 </p>
 
+<div *appUnless="condition">uso appUnless</div>
+<div *ngIf="condition">uso ngIF</div>
+<button (click)="condition = !condition">Toggle condition</button>
 <span>
     Il mio colore preferito
     <ng-container *ngIf="color != null && color !== ''; else templateElse">
@@ -19,5 +22,6 @@
         è il green
     </ng-template>
 </span>
+
 
 <button (click)="toggleColorVar()">toggle variabile colore</button>
