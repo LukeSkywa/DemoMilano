@@ -8,11 +8,11 @@ import { SecondoComponent } from '../secondo/secondo.component';
   styleUrls: ['./ciclo-vita.component.scss']
 })
 export class CicloVitaComponent implements OnChanges, OnInit, DoCheck, AfterViewInit, AfterViewChecked, AfterContentInit, AfterContentChecked, OnDestroy {
-
+  @Input()
   primitiva: string = 'valore default';
-
+  @Input()
   profilo: Persona;
-
+  @Input()
   profilo1: Persona;
 
   inputVar: string;
