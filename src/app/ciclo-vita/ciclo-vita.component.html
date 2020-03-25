@@ -1,7 +1,8 @@
-<p appHighlight highlightColor="yellow">{{primitiva}}</p>
-<p appHighlight highlightColor="{{color}}">Prova Prova</p>
+<p appHighlight="yellow">{{primitiva}}</p>
+<p appHighlight>con valore di default</p>
+<p appHighlight="{{color}}">Prova Prova</p>
 <!-- si preferisce la sintassi sotto con le [] -->
-<p appHighlight [highlightColor]="color">Prova 2</p>
+<p [appHighlight]="color">Prova 2</p>
 
 
 <p>{{profilo | json}}</p>
