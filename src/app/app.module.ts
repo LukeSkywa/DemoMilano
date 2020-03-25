@@ -10,6 +10,7 @@ import { MenuComponent } from './menu/menu.component';
 import { HighlightDirective } from './highlight.directive';
 import { DirectiveComponent } from './directive/directive.component';
 import { UnlessDirective } from './unless.directive';
+import { ExponentialStrengthPipe } from './exponential-strength.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UnlessDirective } from './unless.directive';
     MenuComponent,
     HighlightDirective,
     DirectiveComponent,
-    UnlessDirective
+    UnlessDirective,
+    ExponentialStrengthPipe
   ],
   imports: [
     BrowserModule,

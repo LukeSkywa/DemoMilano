@@ -10,6 +10,9 @@
     </ng-container>
 </p>
 
+<p>{{(4-2) | exponentialStrength}}</p>
+<p>{{(4-2) | exponentialStrength:'3'}}</p>
+
 <div *appUnless="condition">uso appUnless</div>
 <div *ngIf="condition">uso ngIF</div>
 <button (click)="condition = !condition">Toggle condition</button>
