@@ -8,6 +8,7 @@ import { CicloVitaComponent } from './ciclo-vita/ciclo-vita.component';
 import { DemoRoutingModule } from './app-routing.module';
 import { MenuComponent } from './menu/menu.component';
 import { HighlightDirective } from './highlight.directive';
+import { DirectiveComponent } from './directive/directive.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HighlightDirective } from './highlight.directive';
     SecondoComponent,
     CicloVitaComponent,
     MenuComponent,
-    HighlightDirective
+    HighlightDirective,
+    DirectiveComponent
   ],
   imports: [
     BrowserModule,

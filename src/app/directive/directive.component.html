@@ -1,0 +1,7 @@
+<p appHighlight="yellow">{{primitiva}}</p>
+<p appHighlight>con valore di default</p>
+<p appHighlight="{{color}}">Prova Prova</p>
+<!-- si preferisce la sintassi sotto con le [] -->
+<p [appHighlight]="color">Prova 2</p>
+
+<p *ngFor="let item of listaSemplice">{{item}}</p>
