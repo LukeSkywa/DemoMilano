@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero.interface';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -11,13 +11,15 @@ export class ReactiveFormComponent implements OnInit {
   powers: string[]= ["Super forza", "Super resistenza", "Vista raggi x", "Invisibilità", "Super velocità"]
   heroList: Hero[]=[];
   
-  heroForm: FormGroup = new FormGroup({
-    name: new FormControl(),
-    power: new FormControl()
-  });
+  heroForm: FormGroup;
   
-  constructor() { }
-  
+  constructor(private fb: FormBuilder) { 
+    this.heroForm = this.fb.group({
+      name: '',
+      power: ''
+    });
+  }
+
   ngOnInit(): void {
   }
 
