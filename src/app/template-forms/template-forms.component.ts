@@ -15,9 +15,26 @@ export class TemplateFormsComponent implements OnInit {
     power: ''
   };
 
+  heroList: Hero[]=[];
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  createHero() {
+    this.heroList.push({
+      name: this.myHero.name,
+      power: this.myHero.power
+    });
+    this.clearForm();
+  }
+
+  clearForm() {
+    this.myHero = {
+      name: '',
+      power: ''
+    }
   }
 
 }

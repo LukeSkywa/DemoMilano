@@ -1,4 +1,4 @@
-<form #myForm="ngForm">
+<form #myForm="ngForm" (ngSubmit)="createHero();myForm.reset();">
     {{myForm.form.value | json}}
     <div>
         <label for="name">Name</label>
@@ -18,4 +18,10 @@
         <span>Il Potere è obbligatorio</span>
     </div>
     <button type="submit" [disabled]="!myForm.valid">Submit</button>
+    <button type="button" (click)="clearForm();myForm.reset();">Reset</button>
 </form>
+<ul>
+    <li *ngFor="let hero of heroList">
+        <span>{{hero.name}}</span><span>, con potere: </span><span>{{hero.power}}</span>
+    </li>
+</ul>
