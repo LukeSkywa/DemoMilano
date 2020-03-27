@@ -45,4 +45,11 @@ export class SecondoComponent implements OnInit {
     this.mostraRosso = !this.mostraRosso;
   }
 
+  clickConcorrenziale(event?: MouseEvent){
+    console.log('ho effettuato il click');
+    if(event != null) {
+      event.stopPropagation();
+    }
+  }
+
 }
