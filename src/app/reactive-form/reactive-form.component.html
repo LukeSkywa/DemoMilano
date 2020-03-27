@@ -1,4 +1,4 @@
-<form [formGroup]="heroForm">
+<form [formGroup]="heroForm" (ngSubmit)="createHero()">
     {{heroForm.value | json}}
     <div>
         <label for="name">Name</label>
@@ -35,7 +35,7 @@
             <input type="text" id="state" formControlName="state">
         </div>
     </div>
-    <button type="submit">Submit</button>
+    <button type="submit" [disabled]="heroForm.status === 'INVALID'">Submit</button>
     <button type="button">Reset</button>
 </form>
 <ul>

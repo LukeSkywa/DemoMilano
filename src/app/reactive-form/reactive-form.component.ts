@@ -34,11 +34,35 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   createHero() {
+    this.heroList.push({
+      name: this.nameControl.value,
+      power: this.heroForm.get('power').value
+    });
     this.clearForm();
   }
 
+  // il mio obiettivo è resettare i campi name e power
   clearForm() {
-    
+    // variante 1 -> setto solo i valori direttamente ai formControl
+    // su un formContro tra setValue e patchValue c'è poca differenza
+    this.nameControl.setValue('');
+    this.heroForm.get('power').patchValue('');
+    // variante 2 -> con il patch value posso settare solo alcuni campi del form
+    this.heroForm.patchValue({
+      name: '',
+      power: ''
+    });
+    // variante 3 -> con il setValue sono obbligato a indicare tutti i campi
+    this.heroForm.setValue({
+      name: '',
+      power: '',
+      address: {
+        street: '',
+        city: '',
+        zip: '',
+        state: '' 
+      }
+    });
   }
 
 }
