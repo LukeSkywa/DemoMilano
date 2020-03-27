@@ -36,7 +36,7 @@
         </div>
     </div>
     <button type="submit" [disabled]="heroForm.status === 'INVALID'">Submit</button>
-    <button type="button">Reset</button>
+    <button type="button" (click)="clearForm()">Reset</button>
 </form>
 <ul>
     <li *ngFor="let hero of heroList">

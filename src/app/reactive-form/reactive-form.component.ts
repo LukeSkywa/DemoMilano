@@ -45,23 +45,29 @@ export class ReactiveFormComponent implements OnInit {
   clearForm() {
     // variante 1 -> setto solo i valori direttamente ai formControl
     // su un formContro tra setValue e patchValue c'è poca differenza
-    this.nameControl.setValue('');
-    this.heroForm.get('power').patchValue('');
+    // this.nameControl.setValue('');
+    // this.heroForm.get('power').patchValue('');
     // variante 2 -> con il patch value posso settare solo alcuni campi del form
-    this.heroForm.patchValue({
+    // this.heroForm.patchValue({
+    //   name: '',
+    //   power: ''
+    // });
+    // variante 3 -> con il setValue sono obbligato a indicare tutti i campi
+    // this.heroForm.setValue({
+    //   name: '',
+    //   power: '',
+    //   address: {
+    //     street: '',
+    //     city: '',
+    //     zip: '',
+    //     state: '' 
+    //   }
+    // });
+    // variante 4 -> utilizzo direttamente il reset, che mi permette anche di resettare gli stati
+    // per il nostro scopo è la variante migliore
+    this.heroForm.reset({
       name: '',
       power: ''
-    });
-    // variante 3 -> con il setValue sono obbligato a indicare tutti i campi
-    this.heroForm.setValue({
-      name: '',
-      power: '',
-      address: {
-        street: '',
-        city: '',
-        zip: '',
-        state: '' 
-      }
     });
   }
 
