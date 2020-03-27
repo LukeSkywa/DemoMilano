@@ -4,9 +4,9 @@
         <label for="name">Name</label>
         <input type="text" id="name" formControlName="name">
     </div>
-    <!-- <div *ngIf="nameControl.invalid && nameControl.dirty">
+    <div *ngIf="nameControl.status === 'INVALID' && nameControl.dirty">
         <span>Il Nome è obbligatorio</span>
-    </div> -->
+    </div>
     <div>
         <label for="power">Hero Power</label>
         <select id="power" formControlName="power">
@@ -14,9 +14,9 @@
             <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
         </select>
     </div>
-    <!-- <div *ngIf="powerControl.invalid && powerControl.dirty">
+    <div *ngIf="heroForm.get('power').status === 'INVALID' && heroForm.get('power').dirty">
         <span>Il Potere è obbligatorio</span>
-    </div> -->
+    </div>
     <div formGroupName="address">
         <div>
             <label for="street">Strada</label>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero.interface';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -12,6 +12,10 @@ export class ReactiveFormComponent implements OnInit {
   heroList: Hero[]=[];
   
   heroForm: FormGroup;
+
+  get nameControl(): FormControl{
+    return this.heroForm.get('name') as FormControl;
+  }
   
   constructor(private fb: FormBuilder) { 
     this.heroForm = this.fb.group({
@@ -30,7 +34,6 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   createHero() {
-    
     this.clearForm();
   }
 
