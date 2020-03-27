@@ -3,16 +3,26 @@
 </div>
 <p *ngIf="mostraRosso">{{titolo}}</p>
 
-<!-- nell'esempio sotto $event.target === inputProva -->
-<input #inputProva
-(input)="inputEvent(inputProva)" 
-[value]="titolo">
-<input [(ngModel)]="titolo">
+<div>
+    <label>Input con property binding</label>
+    <input [value]="titolo">
+</div>
+<div>
+    <label>Input con event binding</label>
+    <input (input)="titolo = $event.target.value">
+</div>
+<div>
+    <label>input con binding bidirezionale</label>
+    <!-- nell'esempio sotto $event.target === inputProva -->
+    <input #inputProva (input)="inputEvent(inputProva)" [value]="titolo">
+</div>
+<div>
+    <label>input con binding bidirezionale con ngmodel</label>
+    <!-- per usare ngModel va importato il FormsModule -->
+    <input [(ngModel)]="titolo"> 
+</div>
 <!-- negli esempi sopra, ho in entrambi i casi dei binding bidirezionali -->
 
-<p [class.prova]="mostraRosso"
-    [class.altro]="!mostraRosso"
->{{inputProva.value}}</p>
+<p [class.prova]="mostraRosso" [class.altro]="!mostraRosso">{{inputProva.value}}</p>
 
-<p [ngClass]="oggettoClassi"
->{{inputProva.value}}</p>
+<p [ngClass]="oggettoClassi">{{inputProva.value}}</p>
