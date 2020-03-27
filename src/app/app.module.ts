@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { PrimoComponent } from './primo/primo.component';
 import { SecondoComponent } from './secondo/secondo.component';
@@ -8,6 +8,7 @@ import { CicloVitaComponent } from './ciclo-vita/ciclo-vita.component';
 import { DemoRoutingModule } from './app-routing.module';
 import { MenuComponent } from './menu/menu.component';
 import { TemplateFormsComponent } from './template-forms/template-forms.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +17,13 @@ import { TemplateFormsComponent } from './template-forms/template-forms.componen
     SecondoComponent,
     CicloVitaComponent,
     MenuComponent,
-    TemplateFormsComponent
+    TemplateFormsComponent,
+    ReactiveFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     DemoRoutingModule
   ],
   providers: [],

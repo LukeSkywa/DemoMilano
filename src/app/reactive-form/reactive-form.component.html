@@ -1,0 +1,26 @@
+<form [formGroup]="heroForm">
+    <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" required formControlName="name">
+    </div>
+    <!-- <div *ngIf="nameControl.invalid && nameControl.dirty">
+        <span>Il Nome è obbligatorio</span>
+    </div> -->
+    <div>
+        <label for="power">Hero Power</label>
+        <select id="power" required formControlName="power">
+            <option value=""></option>
+            <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+        </select>
+    </div>
+    <!-- <div *ngIf="powerControl.invalid && powerControl.dirty">
+        <span>Il Potere è obbligatorio</span>
+    </div> -->
+    <button type="submit">Submit</button>
+    <button type="button">Reset</button>
+</form>
+<ul>
+    <li *ngFor="let hero of heroList">
+        <span>{{hero.name}}</span><span>, con potere: </span><span>{{hero.power}}</span>
+    </li>
+</ul>

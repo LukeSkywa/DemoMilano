@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { PrimoComponent } from './primo/primo.component';
 import { SecondoComponent } from './secondo/secondo.component';
 import { CicloVitaComponent } from './ciclo-vita/ciclo-vita.component';
-import { MyRouteGuardService } from './my-route-guard.service';
 import { TemplateFormsComponent } from './template-forms/template-forms.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 const appRoutes: Routes = [
     { path: 'primo', component: PrimoComponent, data: {title: 'titolo'} },
@@ -12,6 +12,7 @@ const appRoutes: Routes = [
     { path: 'secondo', component: SecondoComponent },
     { path: 'ciclo-vita', component: CicloVitaComponent },
     { path: 'template-form', component: TemplateFormsComponent },
+    { path: 'reactive-form', component: ReactiveFormComponent },
     { path: '**', component: CicloVitaComponent },
     { path: '', redirectTo: '/primo', pathMatch: 'full' },
 ];
