@@ -1,0 +1,21 @@
+<form #myForm="ngForm">
+    {{myForm.form.value | json}}
+    <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" required [(ngModel)]="myHero.name" name="name" #nameControl="ngModel">
+    </div>
+    <div *ngIf="nameControl.invalid && nameControl.dirty">
+        <span>Il Nome è obbligatorio</span>
+    </div>
+    <div>
+        <label for="power">Hero Power</label>
+        <select id="power" required [(ngModel)]="myHero.power" name="power" #powerControl="ngModel">
+            <option value=""></option>
+            <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+        </select>
+    </div>
+    <div *ngIf="powerControl.invalid && powerControl.dirty">
+        <span>Il Potere è obbligatorio</span>
+    </div>
+    <button type="submit" [disabled]="!myForm.valid">Submit</button>
+</form>
