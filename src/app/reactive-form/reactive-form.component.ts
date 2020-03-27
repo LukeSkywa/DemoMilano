@@ -16,7 +16,13 @@ export class ReactiveFormComponent implements OnInit {
   constructor(private fb: FormBuilder) { 
     this.heroForm = this.fb.group({
       name: ['', Validators.compose([Validators.required, Validators.minLength(3)])], // questa sintassi, con il compose, mi permette di indicare più validatori
-      power: ['', Validators.required] // qui non posso indicare più di validatori, dovrei usare il compose come sopra
+      power: ['', Validators.required], // qui non posso indicare più di validatori, dovrei usare il compose come sopra
+      address: this.fb.group({
+        street: '',
+        city: '',
+        zip: '',
+        state: '' 
+      })
     });
   }
 
