@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero.interface';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -15,8 +15,8 @@ export class ReactiveFormComponent implements OnInit {
   
   constructor(private fb: FormBuilder) { 
     this.heroForm = this.fb.group({
-      name: '',
-      power: ''
+      name: ['', Validators.compose([Validators.required, Validators.minLength(3)])], // questa sintassi, con il compose, mi permette di indicare più validatori
+      power: ['', Validators.required] // qui non posso indicare più di validatori, dovrei usare il compose come sopra
     });
   }
 
