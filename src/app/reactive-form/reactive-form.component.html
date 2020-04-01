@@ -1,9 +1,6 @@
 <form [formGroup]="heroForm" (ngSubmit)="createHero()">
     {{heroForm.value | json}}
-    <div>
-        <label for="name">Name</label>
-        <input type="text" id="name" formControlName="name">
-    </div>
+    <app-input [label]="'Name'" [controlName]="'name'" [parentFormGroup]="heroForm"></app-input>
     <div *ngIf="nameControl.status === 'INVALID' && nameControl.dirty">
         <span>Il Nome è obbligatorio</span>
     </div>
@@ -18,22 +15,10 @@
         <span>Il Potere è obbligatorio</span>
     </div>
     <div formGroupName="address">
-        <div>
-            <label for="street">Strada</label>
-            <input type="text" id="street" formControlName="street">
-        </div>
-        <div>
-            <label for="city">Città</label>
-            <input type="text" id="city" formControlName="city">
-        </div>
-        <div>
-            <label for="zip">Cap</label>
-            <input type="text" id="zip" formControlName="zip" maxlength="5">
-        </div>
-        <div>
-            <label for="state">Nazione</label>
-            <input type="text" id="state" formControlName="state">
-        </div>
+        <app-input [label]="'Strada'" [controlName]="'street'" [parentFormGroup]="heroForm.get('address')"></app-input>
+        <app-input [label]="'Città'" [controlName]="'city'" [parentFormGroup]="heroForm.get('address')"></app-input>
+        <app-input [label]="'Cap'" [controlName]="'zip'" [parentFormGroup]="heroForm.get('address')"></app-input>
+        <app-input [label]="'Nazione'" [controlName]="'state'" [parentFormGroup]="heroForm.get('address')"></app-input>
     </div>
     <button type="submit" [disabled]="heroForm.status === 'INVALID'">Submit</button>
     <button type="button" (click)="clearForm()">Reset</button>

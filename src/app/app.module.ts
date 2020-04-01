@@ -9,6 +9,7 @@ import { DemoRoutingModule } from './app-routing.module';
 import { MenuComponent } from './menu/menu.component';
 import { TemplateFormsComponent } from './template-forms/template-forms.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { InputComponent } from './commons/input/input.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
     CicloVitaComponent,
     MenuComponent,
     TemplateFormsComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    InputComponent
   ],
   imports: [
     BrowserModule,
