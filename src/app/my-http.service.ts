@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { GameItem } from 'src/game-item.interface';
 
@@ -10,7 +10,12 @@ export class MyHttpService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getGames(): Observable<GameItem[]>{
-    return this.httpClient.get<GameItem[]>('http://localhost:3000/games');
+  getGames(): Observable<HttpResponse<GameItem[]>>{
+    return this.httpClient.get<GameItem[]>('http://localhost:3000/games', 
+    { observe: 'response' });
+  }
+
+  getCallInError(){
+    return this.httpClient.get('http://localhost:3000/gams');
   }
 }
