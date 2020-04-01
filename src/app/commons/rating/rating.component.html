@@ -1,0 +1,6 @@
+<div>
+    <label>Valutazione </label>
+    <span *ngFor="let item of [1,2,3,4,5]" 
+        [ngClass]="{active: item <=value, 'no-active': item>value}"
+        (click)="changeValue(item)">V</span>
+</div>

@@ -11,6 +11,7 @@
             <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
         </select>
     </div>
+    <app-rating formControlName="rating"></app-rating>
     <div *ngIf="heroForm.get('power').status === 'INVALID' && heroForm.get('power').dirty">
         <span>Il Potere è obbligatorio</span>
     </div>

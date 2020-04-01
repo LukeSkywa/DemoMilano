@@ -8,16 +8,16 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
   styleUrls: ['./reactive-form.component.scss']
 })
 export class ReactiveFormComponent implements OnInit {
-  powers: string[]= ["Super forza", "Super resistenza", "Vista raggi x", "Invisibilità", "Super velocità"]
-  heroList: Hero[]=[];
-  
+  powers: string[] = ["Super forza", "Super resistenza", "Vista raggi x", "Invisibilità", "Super velocità"]
+  heroList: Hero[] = [];
+
   heroForm: FormGroup;
 
-  get nameControl(): FormControl{
+  get nameControl(): FormControl {
     return this.heroForm.get('name') as FormControl;
   }
-  
-  constructor(private fb: FormBuilder) { 
+
+  constructor(private fb: FormBuilder) {
     this.heroForm = this.fb.group({
       name: ['', Validators.compose([Validators.required, Validators.minLength(3)])], // questa sintassi, con il compose, mi permette di indicare più validatori
       power: ['', Validators.required], // qui non posso indicare più di validatori, dovrei usare il compose come sopra
@@ -25,8 +25,9 @@ export class ReactiveFormComponent implements OnInit {
         street: '',
         city: '',
         zip: '',
-        state: '' 
-      })
+        state: ''
+      }),
+      rating: [3, Validators.compose([Validators.min(1), Validators.max(5)])]
     });
   }
 
@@ -65,9 +66,11 @@ export class ReactiveFormComponent implements OnInit {
     // });
     // variante 4 -> utilizzo direttamente il reset, che mi permette anche di resettare gli stati
     // per il nostro scopo è la variante migliore
+
     this.heroForm.reset({
       name: '',
-      power: ''
+      power: '',
+      rating: 1
     });
   }
 

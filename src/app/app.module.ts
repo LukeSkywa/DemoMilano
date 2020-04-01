@@ -10,6 +10,7 @@ import { MenuComponent } from './menu/menu.component';
 import { TemplateFormsComponent } from './template-forms/template-forms.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { InputComponent } from './commons/input/input.component';
+import { RatingComponent } from './commons/rating/rating.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { InputComponent } from './commons/input/input.component';
     MenuComponent,
     TemplateFormsComponent,
     ReactiveFormComponent,
-    InputComponent
+    InputComponent,
+    RatingComponent
   ],
   imports: [
     BrowserModule,
