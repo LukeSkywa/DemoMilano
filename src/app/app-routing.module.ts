@@ -6,6 +6,7 @@ import { CicloVitaComponent } from './ciclo-vita/ciclo-vita.component';
 import { TemplateFormsComponent } from './template-forms/template-forms.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { ObservableExampleComponent } from './observable-example/observable-example.component';
+import { GamesComponent } from './games/games.component';
 
 const appRoutes: Routes = [
     { path: 'primo', component: PrimoComponent, data: {title: 'titolo'} },
@@ -15,6 +16,7 @@ const appRoutes: Routes = [
     { path: 'template-form', component: TemplateFormsComponent },
     { path: 'reactive-form', component: ReactiveFormComponent },
     { path: 'observable', component: ObservableExampleComponent },
+    { path: 'http', component: GamesComponent },
     { path: '**', component: CicloVitaComponent },
     { path: '', redirectTo: '/primo', pathMatch: 'full' },
 ];

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { PrimoComponent } from './primo/primo.component';
@@ -12,6 +13,7 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { InputComponent } from './commons/input/input.component';
 import { RatingComponent } from './commons/rating/rating.component';
 import { ObservableExampleComponent } from './observable-example/observable-example.component';
+import { GamesComponent } from './games/games.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +26,15 @@ import { ObservableExampleComponent } from './observable-example/observable-exam
     ReactiveFormComponent,
     InputComponent,
     RatingComponent,
-    ObservableExampleComponent
+    ObservableExampleComponent,
+    GamesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    DemoRoutingModule
+    DemoRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
