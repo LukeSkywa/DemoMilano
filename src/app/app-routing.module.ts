@@ -5,6 +5,7 @@ import { SecondoComponent } from './secondo/secondo.component';
 import { CicloVitaComponent } from './ciclo-vita/ciclo-vita.component';
 import { TemplateFormsComponent } from './template-forms/template-forms.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { ObservableExampleComponent } from './observable-example/observable-example.component';
 
 const appRoutes: Routes = [
     { path: 'primo', component: PrimoComponent, data: {title: 'titolo'} },
@@ -13,6 +14,7 @@ const appRoutes: Routes = [
     { path: 'ciclo-vita', component: CicloVitaComponent },
     { path: 'template-form', component: TemplateFormsComponent },
     { path: 'reactive-form', component: ReactiveFormComponent },
+    { path: 'observable', component: ObservableExampleComponent },
     { path: '**', component: CicloVitaComponent },
     { path: '', redirectTo: '/primo', pathMatch: 'full' },
 ];

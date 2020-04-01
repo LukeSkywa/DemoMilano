@@ -11,6 +11,7 @@ import { TemplateFormsComponent } from './template-forms/template-forms.componen
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { InputComponent } from './commons/input/input.component';
 import { RatingComponent } from './commons/rating/rating.component';
+import { ObservableExampleComponent } from './observable-example/observable-example.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { RatingComponent } from './commons/rating/rating.component';
     TemplateFormsComponent,
     ReactiveFormComponent,
     InputComponent,
-    RatingComponent
+    RatingComponent,
+    ObservableExampleComponent
   ],
   imports: [
     BrowserModule,
