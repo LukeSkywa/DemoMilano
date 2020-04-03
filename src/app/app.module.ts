@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { PrimoComponent } from './primo/primo.component';
@@ -14,6 +14,7 @@ import { InputComponent } from './commons/input/input.component';
 import { RatingComponent } from './commons/rating/rating.component';
 import { ObservableExampleComponent } from './observable-example/observable-example.component';
 import { GamesComponent } from './games/games.component';
+import { CustomInterptorService } from './interceptors/custom-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,9 @@ import { GamesComponent } from './games/games.component';
     DemoRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: CustomInterptorService, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
