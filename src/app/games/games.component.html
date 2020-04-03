@@ -1,1 +1,16 @@
-<p *ngFor="let game of gameList">{{game.name}}</p>
+<div *ngFor="let game of gameList">
+    <p>{{game.name}}</p>
+    <button (click)="getDettaglio(game.id)">Dettaglio</button>
+    <button (click)="eliminaGioco(game.id)">Elimina</button>
+</div>
+
+<form [formGroup]="gameForm" (ngSubmit)="aggiungiGioco()">
+    <input formControlName="name" placeholder="Nome">
+    <input formControlName="author" placeholder="Autore">
+    <button type="submit">Aggiungi</button>
+</form>
+
+<div>
+    <h5>Dettaglio</h5>
+    <p>Autore: {{gameDetail?.author}}</p>
+</div>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { GameItem } from 'src/game-item.interface';
 
@@ -11,8 +11,30 @@ export class MyHttpService {
   constructor(private httpClient: HttpClient) { }
 
   getGames(): Observable<HttpResponse<GameItem[]>>{
+    const httpHeaders: HttpHeaders = new HttpHeaders({
+      'Content-Type':  'application/json',
+    });
     return this.httpClient.get<GameItem[]>('http://localhost:3000/games', 
-    { observe: 'response' });
+    { observe: 'response', headers:  httpHeaders});
+  }
+
+  getGame(id: number): Observable<HttpResponse<GameItem>>{
+    return this.httpClient.get<GameItem>('http://localhost:3000/games/'+id, 
+    { observe: 'response'});
+  }
+
+  putGame(id: number, game: GameItem){
+    
+  }
+
+  postGame(game: GameItem){
+    return this.httpClient.post('http://localhost:3000/games/', game,
+    { observe: 'response'});
+  }
+
+  deleteGame(id: number){
+    return this.httpClient.delete<GameItem>('http://localhost:3000/games/'+id, 
+    { observe: 'response'});
   }
 
   getCallInError(){
