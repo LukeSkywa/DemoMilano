@@ -1,3 +1,5 @@
+@import "../../assets/scss/variables";
+
 .prova{
     color: red
 }
@@ -10,7 +12,7 @@
     border: 1px solid gray;
 
     button{
-        background-color: hotpink;
+        background-color: $colorPink;
     }
 }
 
