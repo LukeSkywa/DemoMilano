@@ -4,7 +4,7 @@
     <button type="submit">Aggiungi</button>
 </form>
 
-<div *ngFor="let game of gameList">
+<div *ngFor="let game of gameList | async">
     <p>{{game.name}}</p>
     <button (click)="getDettaglio(game.id)">Dettaglio</button>
     <button (click)="eliminaGioco(game.id)">Elimina</button>

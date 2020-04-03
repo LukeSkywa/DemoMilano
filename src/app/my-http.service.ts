@@ -10,12 +10,12 @@ export class MyHttpService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getGames(): Observable<HttpResponse<GameItem[]>>{
+  getGames(): Observable<GameItem[]>{
     const httpHeaders: HttpHeaders = new HttpHeaders({
       'Content-Type':  'application/json',
     });
     return this.httpClient.get<GameItem[]>('http://localhost:3000/games', 
-    { observe: 'response', headers:  httpHeaders});
+    { headers:  httpHeaders});
   }
 
   getGame(id: number): Observable<HttpResponse<GameItem>>{

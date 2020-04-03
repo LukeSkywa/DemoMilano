@@ -4,6 +4,7 @@ import { GameItem } from 'src/game-item.interface';
 import { HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-games',
@@ -16,7 +17,7 @@ export class GamesComponent implements OnInit {
   gameEditForm: FormGroup;
 
 
-  gameList: GameItem[] = [];
+  gameList: Observable<GameItem[]>;
   gameDetail: GameItem;
 
   get nameControl(): FormControl{
@@ -61,12 +62,7 @@ export class GamesComponent implements OnInit {
   }
 
   recuperaListaGiochi(){
-    this.myHttpService.getGames().subscribe(value => {
-      console.log(JSON.stringify(value));
-      this.gameList = value.body;
-    }, err => {
-      console.log('Servizio andato in errore');
-    });
+    this.gameList = this.myHttpService.getGames();
   }
 
   getDettaglio(id: number){
