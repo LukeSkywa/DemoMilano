@@ -5,6 +5,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { CustomInterptorService } from '../interceptors/custom-interceptor.service';
+import { LoaderService } from '../interceptors/loader.service';
 
 @Component({
   selector: 'app-games',
@@ -12,7 +14,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./games.component.scss']
 })
 export class GamesComponent implements OnInit {
-
+  showLoader: boolean = false;
   gameForm: FormGroup;
   gameEditForm: FormGroup;
 
@@ -20,15 +22,19 @@ export class GamesComponent implements OnInit {
   gameList: Observable<GameItem[]>;
   gameDetail: GameItem;
 
-  get nameControl(): FormControl{
+  get nameControl(): FormControl {
     return this.gameForm.get('name') as FormControl;
   }
 
-  get authorControl(): FormControl{
+  get authorControl(): FormControl {
     return this.gameForm.get('author') as FormControl;
   }
 
-  constructor(private myHttpService: MyHttpService, private fb: FormBuilder) { 
+  constructor(private myHttpService: MyHttpService, private fb: FormBuilder, 
+    private loaderService: LoaderService) {
+    this.loaderService.loaderSubject$.subscribe(value => {
+      this.showLoader = value;
+    });
     this.gameForm = this.fb.group({
       name: ['', Validators.required],
       author: ['', Validators.required]
@@ -61,12 +67,12 @@ export class GamesComponent implements OnInit {
 
   }
 
-  recuperaListaGiochi(){
+  recuperaListaGiochi() {
     this.gameList = this.myHttpService.getGames();
   }
 
-  getDettaglio(id: number){
-    this.myHttpService.getGame(id).subscribe(value=>{
+  getDettaglio(id: number) {
+    this.myHttpService.getGame(id).subscribe(value => {
       this.gameDetail = value.body;
       this.gameEditForm.setValue({
         name: this.gameDetail.name,
@@ -75,28 +81,28 @@ export class GamesComponent implements OnInit {
     })
   }
 
-  modificaGioco(){
+  modificaGioco() {
     this.myHttpService.putGame({
       author: this.gameEditForm.get('author').value,
       name: this.gameEditForm.get('name').value,
       id: this.gameDetail.id
-    }).subscribe(()=>{
+    }).subscribe(() => {
       this.recuperaListaGiochi();
     })
   }
 
-  eliminaGioco(id: number){
-    this.myHttpService.deleteGame(id).subscribe(()=>{
+  eliminaGioco(id: number) {
+    this.myHttpService.deleteGame(id).subscribe(() => {
       this.recuperaListaGiochi();
     });
   }
 
-  aggiungiGioco(){
+  aggiungiGioco() {
     this.myHttpService.postGame({
       id: undefined,
       author: this.authorControl.value,
       name: this.nameControl.value
-    }).subscribe(()=>{
+    }).subscribe(() => {
       this.recuperaListaGiochi();
     });
   }

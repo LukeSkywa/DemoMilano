@@ -4,6 +4,8 @@
     <button type="submit">Aggiungi</button>
 </form>
 
+<div class="loader" *ngIf="showLoader"></div> 
+
 <div *ngFor="let game of gameList | async">
     <p>{{game.name}}</p>
     <button (click)="getDettaglio(game.id)">Dettaglio</button>
