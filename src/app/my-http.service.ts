@@ -23,8 +23,9 @@ export class MyHttpService {
     { observe: 'response'});
   }
 
-  putGame(id: number, game: GameItem){
-    
+  putGame(game: GameItem){
+    return this.httpClient.put('http://localhost:3000/games/'+game.id, game,
+    { observe: 'response'});
   }
 
   postGame(game: GameItem){

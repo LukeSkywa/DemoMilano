@@ -13,6 +13,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 export class GamesComponent implements OnInit {
 
   gameForm: FormGroup;
+  gameEditForm: FormGroup;
 
 
   gameList: GameItem[] = [];
@@ -28,6 +29,10 @@ export class GamesComponent implements OnInit {
 
   constructor(private myHttpService: MyHttpService, private fb: FormBuilder) { 
     this.gameForm = this.fb.group({
+      name: ['', Validators.required],
+      author: ['', Validators.required]
+    });
+    this.gameEditForm = this.fb.group({
       name: ['', Validators.required],
       author: ['', Validators.required]
     });
@@ -67,6 +72,20 @@ export class GamesComponent implements OnInit {
   getDettaglio(id: number){
     this.myHttpService.getGame(id).subscribe(value=>{
       this.gameDetail = value.body;
+      this.gameEditForm.setValue({
+        name: this.gameDetail.name,
+        author: this.gameDetail.author
+      });
+    })
+  }
+
+  modificaGioco(){
+    this.myHttpService.putGame({
+      author: this.gameEditForm.get('author').value,
+      name: this.gameEditForm.get('name').value,
+      id: this.gameDetail.id
+    }).subscribe(()=>{
+      this.recuperaListaGiochi();
     })
   }
 
